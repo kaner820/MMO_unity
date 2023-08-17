@@ -8,6 +8,7 @@ public class Managers : MonoBehaviour
     static Managers Instance;
     public static Managers GetInstance( )
     {
+        Init();
         return Instance;
     }
 
@@ -26,6 +27,7 @@ public class Managers : MonoBehaviour
                 go = new GameObject() { name = "@Managers" };
                 go.AddComponent<Managers>();
             }
+            DontDestroyOnLoad(go);
             Instance = go.GetComponent<Managers>();
         }
         
