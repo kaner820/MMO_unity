@@ -10,8 +10,12 @@ public class Player : MonoBehaviour
         
     }
 
+        public float yAngle = 0.0f;
+
     void Update()
     {
+            yAngle += Time.deltaTime * 100;
+            transform.rotation = Quaternion.Euler(new Vector3(0.0f, yAngle, 0.0f));
         if (Input.GetKey(KeyCode.W))
                 transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed);
             
