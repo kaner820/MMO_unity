@@ -26,6 +26,6 @@ public class ResourceManager
         if (go == null)
             return;
         
-        Object.Destroy(go, t);
+        //Object.Destroy(go, t);
     }
 }
