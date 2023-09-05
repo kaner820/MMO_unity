@@ -6,7 +6,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private Define.CameraMode _mode = Define.CameraMode.QuaterView;
-    [SerializeField] private Vector3 _delta = new Vector3(0,6,5);
+    [SerializeField] private Vector3 _delta;
     [SerializeField] private GameObject _player = null;
 
     private void LateUpdate()
