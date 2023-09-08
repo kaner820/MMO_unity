@@ -6,12 +6,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float _speed;
+    public float _speed = 3.0f;
     
     private Vector3 _destPos;
     void Start()
     {
         Managers.Input.MouseAction += OnMouseClicked;
+
+        // Managers.Resource.Instantiate("UI/UI_Button");
     }
 
     public enum PlayerState
@@ -42,7 +44,7 @@ public class PlayerController : MonoBehaviour
    private void UpdateIdle()
     {
         Animator anim = GetComponent<Animator>();
-        anim.SetFloat("speed",0);
+        anim.SetFloat("speed", 0);
     }
 
     private void UpdateMoving()
@@ -54,6 +56,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
         
+        //이동
         float moveDist = Math.Clamp(_speed * Time.deltaTime, 0, dir.magnitude);
         transform.position += dir.normalized * moveDist;
         if (dir.magnitude > 0.01f)
@@ -86,10 +89,5 @@ public class PlayerController : MonoBehaviour
             _destPos = hit.point;
             _state = PlayerState.Moving;
         }
-    }
-
-    private void OnRunEvent()
-    {
-        Debug.Log("뚜벅");
     }
 }

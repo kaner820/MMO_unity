@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InputManager
 {
@@ -12,6 +13,8 @@ public class InputManager
     private bool _pressed = false;
     public void OnUpdate()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
         if (Input.anyKey && KeyAction != null)
             KeyAction.Invoke();
 
